@@ -1,13 +1,21 @@
 import pygame
 
-class Screens:
+class Basescreen:
     
     def __init__(self, window):
+        pygame.font.init()
+
+        #Set window
         self.window = window
         self.next_screen = False
+
+        self.sky_surface = pygame.image.load("graphics/sky.jpg")
+        self.ground_surface = pygame.image.load()
+
         
         
     def run(self):
+        #Base game loop
         clock = pygame.time.Clock()
         self.running = True
         while self.running:
