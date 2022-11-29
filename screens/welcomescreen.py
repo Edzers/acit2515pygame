@@ -1,6 +1,7 @@
 import pygame
-from screens import Screens
+from screens.mainscreen import Basescreen
 
-class WelcomeScreen:
-    def __init__ (Screens):
-        pass
+class WelcomeScreen(Basescreen):
+    def __init__ (self, *args, **kwargs):
+        super().__init__(*args, **kwargs)
+        
