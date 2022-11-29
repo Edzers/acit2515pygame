@@ -6,25 +6,33 @@ from screens.welcomescreen import WelcomeScreen
 class Game:
     
     def __init__(self):
-        pygame.init()
         self.window = pygame.display.set_mode((1000, 800))
-        self.clock = pygame.time.Clock()
         pygame.display.set_caption("ShootandRun")
         
     def run(self):
+        screens = {
+            "welcome": WelcomeScreen,
+            "main": Basescreen,
+            "gameover": GameOver,
+        }
         running = True
+        current_screen = "welcome"
+
         while running:
-            self.clock.tick(60)
-            for event in pygame.event.get():
-                if event.type == pygame.QUIT:
-                    running = False
-                elif event.type == pygame.KEYDOWN and event.key == pygame.K_ESCAPE:
-                    self.running = False
-                    self.next_screen = False
-                    
-        
-       
+            #Get screen class
+            screen_state = screens.get(current_screen)
+
+            #Create new screen object
+            screen = screen_state(self.window)
+
+            screen.run()
+
+            #Next screen if false
+            if screen.next_screen is False:
+                running = False
+            # Switch to the next screen
+            current_screen = screen.next_screen
 
 if __name__ == "__main__":
-    settings = Game()
-    settings.run()
+    maingame = Game()
+    maingame.run()
