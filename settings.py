@@ -1,5 +1,6 @@
 import pygame
 from screens.mainscreen import Basescreen
+from screens.gamescreen import GameScreen
 from screens.game_over_screen import GameOver
 from screens.welcomescreen import WelcomeScreen
 
@@ -12,7 +13,7 @@ class Game:
     def run(self):
         screens = {
             "welcome": WelcomeScreen,
-            "main": Basescreen,
+            "main": GameScreen,
             "gameover": GameOver,
         }
         running = True
