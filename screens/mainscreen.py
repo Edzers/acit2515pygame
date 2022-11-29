@@ -30,7 +30,7 @@ class Basescreen:
             
 
             # Main event loop for the game
-            for event in pygame.get.event():
+            for event in pygame.event.get():
                 if event.type == pygame.QUIT:
                     self.running = False
                     self.next_screen = False
