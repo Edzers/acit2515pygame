@@ -7,10 +7,12 @@ class WelcomeScreen(Basescreen):
 
         #Setup text
         self.titletext = self.test_font.render("Welcome to the game", True, (255, 255, 255))
+        self.gamestarttext= self.test_font.render("Click to start", True, (255, 255, 255))
         
     def draw(self):
         #Draw the text
-        self.window.blit(self.titletext, (330, 180))
+        self.window.blit(self.titletext, (320, 180))
+        self.window.blit(self.gamestarttext, (370, 420))
 
     def check_state(self, event):
         #Check to see if the game is started
