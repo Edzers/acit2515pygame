@@ -14,7 +14,7 @@ class WelcomeScreen(Basescreen):
         self.window.blit(self.titletext, (320, 180))
         self.window.blit(self.gamestarttext, (370, 420))
 
-    def check_state(self, event):
+    def manage_event(self, event):
         #Check to see if the game is started
         if event.type == pygame.KEYDOWN and event.key == pygame.K_SPACE:
             self.next_screen = "main"
