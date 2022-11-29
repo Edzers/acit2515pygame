@@ -1,20 +1,24 @@
 import pygame
 
-def main() -> None:
-    pygame.init()
-    screen_height = 100
-    screen_width = 100
-    clock = pygame.time.Clock()
+class Game:
     
-    running = True
-    while running:
-        clock.tick(60)
-        for event in pygame.event.get():
-            if event.type == pygame.QUIT:
-                running = False
-                
-    
-    
+    def __init__(self):
+        pygame.init()
+        self.window = pygame.display.set_mode((1000, 800))
+        self.clock = pygame.time.Clock()
+        pygame.display.set_caption("ShootandRun")
+        
+    def run(self):
+        running = True
+        while running:
+            self.clock.tick(60)
+            for event in pygame.event.get():
+                if event.type == pygame.QUIT:
+                    running = False
+                    
+        
+       
 
 if __name__ == "__main__":
-    main()
+    settings = Game()
+    settings.run()
