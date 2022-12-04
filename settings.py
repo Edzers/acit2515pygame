@@ -1,5 +1,4 @@
 import pygame
-from screens.mainscreen import Basescreen
 from screens.gamescreen import GameScreen
 from screens.game_over_screen import GameOver
 from screens.welcomescreen import WelcomeScreen
@@ -8,7 +7,7 @@ class Game:
     
     def __init__(self):
         self.window = pygame.display.set_mode((1000, 800))
-        pygame.display.set_caption("ShootandRun")
+        pygame.display.set_caption("Runandjump")
         
     def run(self):
         screens = {
