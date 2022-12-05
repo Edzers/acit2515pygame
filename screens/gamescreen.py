@@ -23,6 +23,8 @@ class GameScreen(Basescreen):
             self.next_screen = "gameover"
             self.running = False
             self.score.update_score(self.points)
+        if int(self.points) % 10 == 0:
+            self.mainchar.player_vel -= 3
 
 
     def draw(self):
