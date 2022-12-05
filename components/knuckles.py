@@ -7,7 +7,15 @@ class Knuckles(pygame.sprite.Sprite):
         knuckle = pygame.image.load("graphics/knuckles.png").convert_alpha()
         knuckle = pygame.transform.scale(knuckle, (110,110))
         self.image = knuckle
-        self.rect = self.image.get_rect(midbottom=(800, 730))
+        self.rect = self.image.get_rect(midbottom=(800, 730))       
+
+    
+    def update(self):
+        self.rect.x -= 6
+        if self.rect.x < - 100: 
+            self.rect.x = 950
+
+
 
 
    

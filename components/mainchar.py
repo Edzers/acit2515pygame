@@ -8,7 +8,7 @@ class Mainchar(pygame.sprite.Sprite):
         self.state = 'idle'
         self.player_vel = 5
         self.frog_index = 0
-        self.default = (500, 720)
+        self.default = (300, 720)
 
         self.BLACK = (0, 0, 0)
 
@@ -57,7 +57,7 @@ class Mainchar(pygame.sprite.Sprite):
         self.image = self.frogidle[self.frog_index]
         self.rect = self.image.get_rect(bottomleft=self.default)
        
-       
+    #Set state of player
     def set_state(self):
         self.state = 'idle'
         if self.player_vel > 0:
@@ -65,14 +65,14 @@ class Mainchar(pygame.sprite.Sprite):
         elif self.player_vel < 0:
             self.state = 'moving_left'
         
-    
+    # Gravity
     def model_gravity(self):
         self.gravity += 1 
         self.rect.y += self.gravity
         if self.rect.bottom >= 720:
             self.rect.bottom = 720
 
-
+    # Animate the various states
     def animate(self):
         if self.state == 'idle':
             self.frog_index += 0.25
@@ -92,7 +92,8 @@ class Mainchar(pygame.sprite.Sprite):
                 self.image = pygame.transform.flip(self.frogrun[int(self.frog_index)], flip_x = 1, flip_y = 0)
             if self.rect.bottom < 720:
                 self.image = self.frog_jump
-        
+    
+    # Movement function
     def movement(self):
         keystroke = pygame.key.get_pressed()
 
@@ -103,8 +104,6 @@ class Mainchar(pygame.sprite.Sprite):
             self.player_vel = 4
         if keystroke[pygame.K_SPACE] and self.rect.bottom == 720:
             self.gravity = -20
-
-
 
         self.rect.x += self.player_vel
         

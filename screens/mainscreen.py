@@ -16,11 +16,8 @@ class Basescreen:
         self.ground_surface1 = pygame.transform.scale(self.ground_surface, (1000, 800))
 
         #Set up fonts
-
         self.test_font = pygame.font.Font(None, 50)
 
-        
-        
     def run(self):
         clock = pygame.time.Clock()
         self.running = True
@@ -39,5 +36,6 @@ class Basescreen:
                     self.running = False
                     self.next_screen = False
                     
+
                 self.manage_event(event)
         
