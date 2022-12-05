@@ -6,11 +6,13 @@ class GameOver(Basescreen):
         super().__init__(*args, **kwargs)
 
         self.titletext = self.test_font.render("You Lose!", True, (255, 255, 255))
+        self.gameoverscore = self.test_font.render(f"SCORE: {self.score}", True, (255, 255, 255))
 
     def draw(self):
         #Draw the text
         self.window.fill((64, 64, 64))
         self.window.blit(self.titletext, (400, 180))
+        self.window.blit(self.gameoverscore, (400, 130))
 
 
     def update(self):

@@ -1,11 +1,24 @@
-import pygame
 import json
 
 class Score:
     def __init__(self):
         self.scores = {}
-        
+        self.read_score()
 
-    def load_score(self):
-        pass
+    def write_score(self):
+        with open('components/score.json', 'w') as fp:
+            json.dump(self.scores, fp)
 
+    def read_score(self):
+        with open('components/score.json', 'r') as fp:
+            self.scores = json.load(fp)
+
+    def add_score(self, newest_score):
+        self.scores['new_score'] = newest_score
+
+        self.write_score()
+
+    def get_score(self):
+        return self.scores['new_score']
+
+    

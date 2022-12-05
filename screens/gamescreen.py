@@ -22,6 +22,8 @@ class GameScreen(Basescreen):
         if self.mainchar.rect.colliderect(self.knuckles.rect):
             self.next_screen = "gameover"
             self.running = False
+            self.score.add_score(self.points)
+
 
     def draw(self):
         #Draw the sprites

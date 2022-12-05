@@ -1,4 +1,5 @@
 import pygame
+from components.score import Score
 
 class Basescreen:
     
@@ -8,6 +9,9 @@ class Basescreen:
         #Set window
         self.window = window
         self.next_screen = False
+
+        #Initialize score
+        self.score = Score()
 
         #Load background images
         self.sky_surface = pygame.image.load("graphics/sky.jpg")
