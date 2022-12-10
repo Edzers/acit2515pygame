@@ -107,8 +107,7 @@ class Mainchar(pygame.sprite.Sprite):
 
         self.rect.x += self.player_vel
 
-        if int(self.points) % 100 == 0:
-            self.player_vel -= 3
+    
         
 
     def update(self):
